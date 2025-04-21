@@ -15,10 +15,6 @@ def create_task(request):
     return render(request, 'create_task.html', {'form': form})
 
 def task_list(request):
-    sort=request.GET.get('sort')
-    if sort == 'due_date':
-        tasks = tasks.order_by('due_date')
-    else:
         tasks = Task.objects.all()
     return render(request, 'task_list.html', {'tasks': tasks})
 
